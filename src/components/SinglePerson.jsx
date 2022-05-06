@@ -1,7 +1,6 @@
-import { Container, Row, Col, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import "./stylesheets/singlePerson.css";
-import { useLocation } from "react-router-dom";
+import { Container, Row, Col } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
+import './stylesheets/singlePerson.css'
 
 const SinglePerson = (props) => {
   return (
@@ -9,15 +8,17 @@ const SinglePerson = (props) => {
       <Row>
         <Col md={3}>
           <img
-            style={{ height: "50px", width: "50px", borderRadius: "50%" }}
+            style={{ height: '50px', width: '50px', borderRadius: '50%' }}
             src={props.profile.image}
             alt="profilePic"
           />
         </Col>
         <Col md={9}>
           <Row>
-            {console.log("Use location: ", useLocation())}
-            <Link to={`/profile-page/${props.profile._id}`}>
+            <Link
+              style={{ color: 'black' }}
+              to={`/profile-page/${props.profile._id}`}
+            >
               <span className="name">
                 {props.profile.name} {props.profile.surname}
               </span>
@@ -39,6 +40,6 @@ const SinglePerson = (props) => {
         </Col>
       </Row>
     </Container>
-  );
-};
-export default SinglePerson;
+  )
+}
+export default SinglePerson

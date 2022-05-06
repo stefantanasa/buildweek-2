@@ -40,10 +40,10 @@ const ExperiencesCard = (props) => {
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [props.profileId]);
+  }, [props.profileId, props.profiledata]);
 
   return (
-    <div className="sidebar-container ">
+    <div className="sidebar-container  ">
       <div className="d-flex justify-content-between m-3">
         <div>
           <h3>Experiences</h3>

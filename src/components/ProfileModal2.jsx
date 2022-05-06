@@ -1,7 +1,7 @@
 import React from 'react'
 import { Modal, Container, Button } from 'react-bootstrap'
 
-const ProfileModal = (props) => {
+const ProfileModal2 = (props) => {
   return (
     <Modal {...props} aria-labelledby="contained-modal-title-vcenter">
       <Modal.Header closeButton>
@@ -28,4 +28,4 @@ const ProfileModal = (props) => {
   )
 }
 
-export default ProfileModal
+export default ProfileModal2
