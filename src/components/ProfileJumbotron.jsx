@@ -7,7 +7,7 @@ import { Row } from "react-bootstrap";
 import EditJumbotronForm from "./EditJumbotronForm";
 import UploadProfilePicture from "./UploadProfilePicture";
 
-const ProfileJumbotron = ({ profiledata, editprofiledata, putprofiledata }) => {
+const ProfileJumbotron = ({ profiledata, setProfileData, putprofiledata }) => {
   const [modalShow, setModalShow] = useState(false);
 
   const [modalContent, setModalContent] = useState();
@@ -27,7 +27,7 @@ const ProfileJumbotron = ({ profiledata, editprofiledata, putprofiledata }) => {
           style={{ right: "2rem", top: "1rem" }}
         >
           <i
-            className="fa-solid fa-pencil mr-4 mt-4  "
+            className="bi bi-pencil-fill mr-4 mt-4  "
             style={{ position: "absolute", bottom: "0.5rem", left: "9px" }}
           ></i>
         </div>
@@ -40,7 +40,7 @@ const ProfileJumbotron = ({ profiledata, editprofiledata, putprofiledata }) => {
           alt=""
           onClick={() => {
             console.log("cliock");
-            setAction(console.log("close"));
+            setAction("close");
             setModalContent(<UploadProfilePicture />);
             setModalShow(true);
           }}
@@ -49,18 +49,22 @@ const ProfileJumbotron = ({ profiledata, editprofiledata, putprofiledata }) => {
         <div
           className={`edit-info-btn d-flex  justify-content-center align-items-center`}
           style={{ top: "11rem", right: "2rem" }}
+          onClick={() => {
+            setModalContent(
+              <EditJumbotronForm
+                profiledata={profiledata}
+                setProfileData={setProfileData}
+              />
+            );
+            setModalShow(true);
+          }}
         >
           <i
-            className="fa-solid fa-pencil mr-4 mt-4 "
-            style={{ position: "absolute", bottom: "0.5rem", left: "9px" }}
-            onClick={() => {
-              setModalContent(
-                <EditJumbotronForm
-                  profiledata={profiledata}
-                  editprofiledata={editprofiledata}
-                />
-              );
-              setModalShow(true);
+            className="bi bi-pencil-fill mr-4 mt-4  "
+            style={{
+              position: "absolute",
+              bottom: "0.5rem",
+              left: "9px",
             }}
           ></i>
         </div>

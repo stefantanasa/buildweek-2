@@ -44,7 +44,7 @@ function App() {
             element={
               <ProfilePage
                 profiledata={profileData}
-                setprofiledata={setProfileData}
+                setProfileData={setProfileData}
               />
             }
           />
@@ -53,7 +53,7 @@ function App() {
             element={
               <ProfilePage
                 profiledata={profileData}
-                setprofiledata={setProfileData}
+                setProfileData={setProfileData}
               />
             }
           />

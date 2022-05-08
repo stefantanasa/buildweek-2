@@ -5,12 +5,10 @@ import Experience from "./Experience";
 const ExperiencesCard = (props) => {
   const [experiences, setExperiences] = useState([]);
   const [action, setAction] = useState();
-  console.log("what action? ", action);
+
   const getAction = (action) => {
     setAction(action);
   };
-
-  console.log("main state:", experiences);
 
   const fetchNewId = async (id) => {
     try {
@@ -27,14 +25,12 @@ const ExperiencesCard = (props) => {
         const data = await response.json();
 
         setExperiences(data);
-        console.log("Fetched data: ", data);
       }
     } catch (error) {
       console.log("error", error);
     }
   };
   useEffect(() => {
-    console.log("props prof: ", props.profileId);
     if (props.profileId) {
       fetchNewId(props.profileId);
     }
@@ -53,7 +49,7 @@ const ExperiencesCard = (props) => {
         experiences.map((exp) => (
           <Experience
             profiledata={props.profiledata}
-            setprofiledata={props.setprofiledata}
+            setprofiledata={props.setProfileData}
             key={exp._id}
             getaction={getAction}
             experience={exp}
