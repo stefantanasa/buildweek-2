@@ -7,10 +7,10 @@ import { Row } from "react-bootstrap";
 import EditJumbotronForm from "./EditJumbotronForm";
 import UploadProfilePicture from "./UploadProfilePicture";
 
-const ProfileJumbotron = ({ profileData, setProfileData, putprofiledata }) => {
+const ProfileJumbotron = ({ profileData, setProfileData }) => {
   const [modalShow, setModalShow] = useState(false);
   const [modalContent, setModalContent] = useState();
-  const [action, setAction] = useState(putprofiledata);
+  // const [action, setAction] = useState(putprofiledata);
 
   return (
     <div className="profile-jumbotron ">
@@ -39,7 +39,7 @@ const ProfileJumbotron = ({ profileData, setProfileData, putprofiledata }) => {
           alt=""
           onClick={() => {
             console.log("cliock");
-            setAction("close");
+            // setAction("close");
             setModalContent(<UploadProfilePicture />);
             setModalShow(true);
           }}
