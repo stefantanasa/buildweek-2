@@ -2,12 +2,12 @@ import React from "react";
 import { Form } from "react-bootstrap";
 import { useEffect, useState } from "react";
 
-const EditJumbotronForm = (props) => {
-  const [newData, setNewData] = useState(props.profiledata);
+const EditJumbotronForm = ({ profileData, setProfileData }) => {
+  const [newData, setNewData] = useState(profileData);
 
   console.log("newData: ", newData);
-  console.log("props: ", props.profiledata);
-  useEffect(() => setNewData(props.profiledata), [newData]);
+  console.log("props: ", profileData);
+  useEffect(() => setProfileData(newData), [newData]);
 
   return (
     <Form>
@@ -44,11 +44,7 @@ const EditJumbotronForm = (props) => {
         <br />
         <Form.Control value={newData.title} type="text" placeholder="Title" />
         <br />
-        <Form.Control
-          value={props.profiledata.area}
-          type="text"
-          placeholder="Location"
-        />
+        <Form.Control value={newData.area} type="text" placeholder="Location" />
         <br />
       </Form.Group>
     </Form>

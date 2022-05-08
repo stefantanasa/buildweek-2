@@ -7,9 +7,8 @@ import { Row } from "react-bootstrap";
 import EditJumbotronForm from "./EditJumbotronForm";
 import UploadProfilePicture from "./UploadProfilePicture";
 
-const ProfileJumbotron = ({ profiledata, setProfileData, putprofiledata }) => {
+const ProfileJumbotron = ({ profileData, setProfileData, putprofiledata }) => {
   const [modalShow, setModalShow] = useState(false);
-
   const [modalContent, setModalContent] = useState();
   const [action, setAction] = useState(putprofiledata);
 
@@ -36,7 +35,7 @@ const ProfileJumbotron = ({ profiledata, setProfileData, putprofiledata }) => {
       <Row>
         <img
           className="profile-img"
-          src={profiledata.image}
+          src={profileData.image}
           alt=""
           onClick={() => {
             console.log("cliock");
@@ -52,7 +51,7 @@ const ProfileJumbotron = ({ profiledata, setProfileData, putprofiledata }) => {
           onClick={() => {
             setModalContent(
               <EditJumbotronForm
-                profiledata={profiledata}
+                profileData={profileData}
                 setProfileData={setProfileData}
               />
             );
@@ -72,13 +71,12 @@ const ProfileJumbotron = ({ profiledata, setProfileData, putprofiledata }) => {
       <Row>
         <ProfileModal
           content={modalContent}
-          putprofiledata={action}
-          profiledata={profiledata}
+          profiledata={profileData}
           show={modalShow}
           onHide={() => setModalShow(false)}
         />
 
-        <DescriptionProfile profiledata={profiledata} />
+        <DescriptionProfile profiledata={profileData} />
       </Row>
     </div>
   );
