@@ -14,13 +14,6 @@ const ProfilePage = () => {
   const [experiencesId, setExperiencesId] = useState("");
   const [profileData, setProfileData] = useState();
 
-  const editProfileData = (e, field) => {
-    setProfileData({
-      ...profileData,
-      [field]: e.target.value,
-    });
-  };
-
   const fetchAllProfiles = async () => {
     const response = await fetch(
       "https://striveschool-api.herokuapp.com/api/profile/",
@@ -53,7 +46,7 @@ const ProfilePage = () => {
   // let params = useParams();
   useEffect(() => {
     fetchProfileData();
-    console.log("Profile Data in profiledata: ", profileData);
+    fetchAllProfiles();
   }, []);
 
   return (
@@ -66,34 +59,6 @@ const ProfilePage = () => {
               profileData={profileData}
             />
           )}
-
-          {/* {profile ? ( */}
-          {/* <ProfileJumbotron
-            profiledata={profile}
-            setProfileData={setProfileData}
-            putprofiledata={putProfileData}
-          /> */}
-          {/* ) : ( */}
-          {/* <ProfileJumbotron
-              profiledata={profiledata}
-              editprofiledata={editProfileData}
-              putprofiledata={putProfileData}
-            /> */}
-          {/* )} */}
-
-          {/* {profile ? (
-            <ExperiencesCard
-              profiledata={profile}
-              setProfileData={setProfileData}
-              profileId={profiledata._id}
-            />
-          ) : (
-            <ExperiencesCard
-              profiledata={profiledata}
-              setProfileData={setProfileData}
-              profileId={profiledata._id}
-            />
-          )} */}
           <EducationCard />
         </Col>
         <Col md={4}>
