@@ -7,11 +7,10 @@ import { Row } from "react-bootstrap";
 import EditJumbotronForm from "./EditJumbotronForm";
 import UploadProfilePicture from "./UploadProfilePicture";
 
-const ProfileJumbotron = ({ profiledata, editprofiledata, putprofiledata }) => {
+const ProfileJumbotron = ({ profileData, setProfileData }) => {
   const [modalShow, setModalShow] = useState(false);
-
   const [modalContent, setModalContent] = useState();
-  const [action, setAction] = useState(putprofiledata);
+  // const [action, setAction] = useState(putprofiledata);
 
   return (
     <div className="profile-jumbotron ">
@@ -27,7 +26,7 @@ const ProfileJumbotron = ({ profiledata, editprofiledata, putprofiledata }) => {
           style={{ right: "2rem", top: "1rem" }}
         >
           <i
-            className="fa-solid fa-pencil mr-4 mt-4  "
+            className="bi bi-pencil-fill mr-4 mt-4  "
             style={{ position: "absolute", bottom: "0.5rem", left: "9px" }}
           ></i>
         </div>
@@ -36,11 +35,11 @@ const ProfileJumbotron = ({ profiledata, editprofiledata, putprofiledata }) => {
       <Row>
         <img
           className="profile-img"
-          src={profiledata.image}
+          src={profileData.image}
           alt=""
           onClick={() => {
             console.log("cliock");
-            setAction(console.log("close"));
+            // setAction("close");
             setModalContent(<UploadProfilePicture />);
             setModalShow(true);
           }}
@@ -49,18 +48,22 @@ const ProfileJumbotron = ({ profiledata, editprofiledata, putprofiledata }) => {
         <div
           className={`edit-info-btn d-flex  justify-content-center align-items-center`}
           style={{ top: "11rem", right: "2rem" }}
+          onClick={() => {
+            setModalContent(
+              <EditJumbotronForm
+                profileData={profileData}
+                setProfileData={setProfileData}
+              />
+            );
+            setModalShow(true);
+          }}
         >
           <i
-            className="fa-solid fa-pencil mr-4 mt-4 "
-            style={{ position: "absolute", bottom: "0.5rem", left: "9px" }}
-            onClick={() => {
-              setModalContent(
-                <EditJumbotronForm
-                  profiledata={profiledata}
-                  editprofiledata={editprofiledata}
-                />
-              );
-              setModalShow(true);
+            className="bi bi-pencil-fill mr-4 mt-4  "
+            style={{
+              position: "absolute",
+              bottom: "0.5rem",
+              left: "9px",
             }}
           ></i>
         </div>
@@ -68,13 +71,12 @@ const ProfileJumbotron = ({ profiledata, editprofiledata, putprofiledata }) => {
       <Row>
         <ProfileModal
           content={modalContent}
-          putprofiledata={action}
-          profiledata={profiledata}
+          profiledata={profileData}
           show={modalShow}
           onHide={() => setModalShow(false)}
         />
 
-        <DescriptionProfile profiledata={profiledata} />
+        <DescriptionProfile profiledata={profileData} />
       </Row>
     </div>
   );
