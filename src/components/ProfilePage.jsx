@@ -9,8 +9,7 @@ import { useParams } from "react-router-dom";
 import ExperiencesCard from "./ExperiencesCard";
 import EducationCard from "./EducationCard";
 
-const ProfilePage = ({ profileData, setProfileData }) => {
-  const [allProfiles, setAllProfiles] = useState([]);
+const ProfilePage = ({ profileData, setProfileData, allProfiles }) => {
   const [experiencesId, setExperiencesId] = useState("");
   // const [profileData, setProfileData] = useState();
 
@@ -44,11 +43,11 @@ const ProfilePage = ({ profileData, setProfileData }) => {
   //   setProfileData(data);
   // };
   // let params = useParams();
-  useEffect(() => {
-    // fetchProfileData();
-    // fetchAllProfiles();
-  }, []);
-  console.log("profile page:", profileData);
+  // useEffect(() => {
+  // fetchProfileData();
+  // fetchAllProfiles();
+  // }, []);
+
   return (
     <Container>
       <Row>
@@ -59,7 +58,14 @@ const ProfilePage = ({ profileData, setProfileData }) => {
               profileData={profileData}
             />
           )}
-          <EducationCard />
+          <ExperiencesCard
+            setProfileData={setProfileData}
+            profileData={profileData}
+          />
+          <EducationCard
+            setProfileData={setProfileData}
+            profileData={profileData}
+          />
         </Col>
         <Col md={4}>
           <SidebarTop />

@@ -2,15 +2,11 @@ import { useEffect, useState } from "react";
 import "../stylesheets/experiencesCard-stylesheet.css";
 import Experience from "./Experience";
 
-const ExperiencesCard = (props) => {
-  const [experiences, setExperiences] = useState([]);
-  const [action, setAction] = useState();
+const ExperiencesCard = ({ setProfileData, profileData }) => {
+  const [experiences, setExperiences] = useState();
+  const [profileId, setProfileId] = useState();
 
-  const getAction = (action) => {
-    setAction(action);
-  };
-
-  const fetchNewId = async (id) => {
+  const fetchExperiences = async (id) => {
     try {
       const response = await fetch(
         `https://striveschool-api.herokuapp.com/api/profile/${id}/experiences`,
@@ -23,20 +19,18 @@ const ExperiencesCard = (props) => {
       );
       if (response.ok) {
         const data = await response.json();
-
         setExperiences(data);
+        console.log("experiences: ", data);
       }
     } catch (error) {
       console.log("error", error);
     }
   };
   useEffect(() => {
-    if (props.profileId) {
-      fetchNewId(props.profileId);
-    }
-
+    setProfileId("626fc30317c4e00015d7a082");
+    fetchExperiences("626fc30317c4e00015d7a082");
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [props.profileId, props.profiledata]);
+  }, []);
 
   return (
     <div className="sidebar-container  ">
@@ -44,21 +38,15 @@ const ExperiencesCard = (props) => {
         <div>
           <h3>Experiences</h3>
         </div>
+        <div>
+          <i
+            className="bi bi-plus-lg mr-3"
+            onClick={() => console.log("Add experience")}
+          ></i>
+        </div>
       </div>
       {experiences &&
-        experiences.map((exp) => (
-          <Experience
-            profiledata={props.profiledata}
-            setprofiledata={props.setProfileData}
-            key={exp._id}
-            getaction={getAction}
-            experience={exp}
-            setexperiences={setExperiences}
-            allExperiences={experiences}
-            action={action}
-          />
-        ))}
-      {/* <ExperiencesUser users={user} /> */}
+        experiences.map((exp) => <Experience key={exp._id} experience={exp} />)}
     </div>
   );
 };

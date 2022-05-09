@@ -14,6 +14,24 @@ import { useEffect, useState } from "react";
 
 function App() {
   const [profileData, setProfileData] = useState([]);
+  const [allProfiles, setAllProfiles] = useState([]);
+
+  const fetchAllProfiles = async () => {
+    const response = await fetch(
+      "https://striveschool-api.herokuapp.com/api/profile/",
+      {
+        headers: {
+          authorization:
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjU2YmQxZGE5MDIzOTAwMTVkOTY1YzgiLCJpYXQiOjE2NTE0OTM1NzcsImV4cCI6MTY1MjcwMzE3N30.9qnwR5Y-5lsD8GLJZNjp5T6Z__FJku-we3Sn6MwRpp0",
+        },
+      }
+    );
+
+    const data = await response.json();
+
+    console.log(data.slice(0, 8));
+    setAllProfiles(data);
+  };
 
   const fetchProfileData = async () => {
     const linkToFetch = `https://striveschool-api.herokuapp.com/api/profile/me`;
@@ -27,11 +45,12 @@ function App() {
     const data = await response.json();
 
     setProfileData(data);
-    console.log("Fetched data from pprofile page: ", data);
+    console.log("Fetched data app.js ", profileData._id);
   };
 
   useEffect(() => {
     fetchProfileData();
+    fetchAllProfiles();
   }, []);
 
   return (
@@ -45,6 +64,7 @@ function App() {
               <ProfilePage
                 profileData={profileData}
                 setProfileData={setProfileData}
+                allProfiles={allProfiles}
               />
             }
           />
@@ -54,6 +74,7 @@ function App() {
               <ProfilePage
                 profileData={profileData}
                 setProfileData={setProfileData}
+                allProfiles={allProfiles}
               />
             }
           />
