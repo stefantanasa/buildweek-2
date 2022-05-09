@@ -3,21 +3,21 @@ import { Form } from "react-bootstrap";
 import { useState } from "react";
 import UploadExperiencePicture from "./UploadExperiencePicture";
 
-const AddExperience = ({ experience, setPostExp }) => {
+const AddExperience = () => {
   const [userExperience, setUserExperience] = useState();
 
-  let change = (e, field) => {
-    setUserExperience({
-      ...userExperience,
-      [field]: e.target.value,
-    });
-    setPostExp({
-      ...userExperience,
-      [field]: e.target.value,
-    });
+  // let change = (e, field) => {
+  //   setUserExperience({
+  //     ...userExperience,
+  //     [field]: e.target.value,
+  //   });
+  //   setPostExp({
+  //     ...userExperience,
+  //     [field]: e.target.value,
+  //   });
 
-    console.log("inside setUserExp: ", userExperience);
-  };
+  //   console.log("inside setUserExp: ", userExperience);
+  // };
 
   return (
     <Form>
@@ -27,32 +27,32 @@ const AddExperience = ({ experience, setPostExp }) => {
         <Form.Control
           type="text"
           placeholder="Role"
-          onChange={(e) => change(e, "role")}
+          onChange={(e) => console.log(e, "role")}
         />
         <br />
-        <UploadExperiencePicture expId={experience._id} />
+        <UploadExperiencePicture />
         <Form.Control
           type="text"
           placeholder="Company"
-          onChange={(e) => change(e, "company")}
+          onChange={(e) => console.log(e, "company")}
         />
         <br />
         <Form.Control
           type="date"
           placeholder="Start date"
-          onChange={(e) => change(e, "startDate")}
+          onChange={(e) => console.log(e, "startDate")}
         />
         <br />
         <Form.Control
           type="date"
           placeholder="End date"
-          onChange={(e) => change(e, "endDate")}
+          onChange={(e) => console.log(e, "endDate")}
         />
         <br />
         <Form.Group
           type="text"
           controlId="exampleForm.ControlTextarea1"
-          onChange={(e) => change(e, "description")}
+          onChange={(e) => console.log(e, "description")}
         >
           <Form.Control as="textarea" rows={3} placeholder="Description" />
         </Form.Group>
@@ -60,7 +60,7 @@ const AddExperience = ({ experience, setPostExp }) => {
         <Form.Control
           type="text"
           placeholder="Location"
-          onChange={(e) => change(e, "area")}
+          onChange={(e) => console.log(e, "area")}
         />
         <br />
       </Form.Group>

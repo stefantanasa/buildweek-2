@@ -1,10 +1,14 @@
 import { useEffect, useState } from "react";
 import "../stylesheets/experiencesCard-stylesheet.css";
+import AddExperience from "./AddExperience";
 import Experience from "./Experience";
+import ProfileModal from "./ProfileModal";
 
 const ExperiencesCard = ({ setProfileData, profileData }) => {
   const [experiences, setExperiences] = useState();
   const [profileId, setProfileId] = useState();
+  const [content, setContent] = useState(<AddExperience />);
+  const [modalShow, setModalShow] = useState(false);
 
   const fetchExperiences = async (id) => {
     try {
@@ -41,12 +45,18 @@ const ExperiencesCard = ({ setProfileData, profileData }) => {
         <div>
           <i
             className="bi bi-plus-lg mr-3"
-            onClick={() => console.log("Add experience")}
+            onClick={() => setModalShow(true)}
           ></i>
         </div>
       </div>
       {experiences &&
         experiences.map((exp) => <Experience key={exp._id} experience={exp} />)}
+      <ProfileModal
+        show={modalShow}
+        content={content}
+        onHide={() => setModalShow(false)}
+        title={"Edit Experience"}
+      />
     </div>
   );
 };
