@@ -9,46 +9,46 @@ import { useParams } from "react-router-dom";
 import ExperiencesCard from "./ExperiencesCard";
 import EducationCard from "./EducationCard";
 
-const ProfilePage = () => {
+const ProfilePage = ({ profileData, setProfileData }) => {
   const [allProfiles, setAllProfiles] = useState([]);
   const [experiencesId, setExperiencesId] = useState("");
-  const [profileData, setProfileData] = useState();
+  // const [profileData, setProfileData] = useState();
 
-  const fetchAllProfiles = async () => {
-    const response = await fetch(
-      "https://striveschool-api.herokuapp.com/api/profile/",
-      {
-        headers: {
-          authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjU2YmQxZGE5MDIzOTAwMTVkOTY1YzgiLCJpYXQiOjE2NTE0OTM1NzcsImV4cCI6MTY1MjcwMzE3N30.9qnwR5Y-5lsD8GLJZNjp5T6Z__FJku-we3Sn6MwRpp0",
-        },
-      }
-    );
+  // const fetchAllProfiles = async () => {
+  //   const response = await fetch(
+  //     "https://striveschool-api.herokuapp.com/api/profile/",
+  //     {
+  //       headers: {
+  //         authorization:
+  //           "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjU2YmQxZGE5MDIzOTAwMTVkOTY1YzgiLCJpYXQiOjE2NTE0OTM1NzcsImV4cCI6MTY1MjcwMzE3N30.9qnwR5Y-5lsD8GLJZNjp5T6Z__FJku-we3Sn6MwRpp0",
+  //       },
+  //     }
+  //   );
 
-    const data = await response.json();
+  //   const data = await response.json();
 
-    setAllProfiles(data);
-  };
+  //   setAllProfiles(data);
+  // };
 
-  const fetchProfileData = async () => {
-    const linkToFetch = `https://striveschool-api.herokuapp.com/api/profile/me`;
-    const response = await fetch(linkToFetch, {
-      method: "GET",
-      headers: {
-        authorization:
-          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjZmYzMwMzE3YzRlMDAwMTVkN2EwODIiLCJpYXQiOjE2NTE0OTE1ODgsImV4cCI6MTY1MjcwMTE4OH0.yS8YrZCAJfbhN7ye7OAqtaTyteCbwQsztG411czMp8s",
-      },
-    });
-    const data = await response.json();
-    console.log(data);
-    setProfileData(data);
-  };
+  // const fetchProfileData = async () => {
+  //   const linkToFetch = `https://striveschool-api.herokuapp.com/api/profile/me`;
+  //   const response = await fetch(linkToFetch, {
+  //     method: "GET",
+  //     headers: {
+  //       authorization:
+  //         "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjZmYzMwMzE3YzRlMDAwMTVkN2EwODIiLCJpYXQiOjE2NTE0OTE1ODgsImV4cCI6MTY1MjcwMTE4OH0.yS8YrZCAJfbhN7ye7OAqtaTyteCbwQsztG411czMp8s",
+  //     },
+  //   });
+  //   const data = await response.json();
+  //   console.log(data);
+  //   setProfileData(data);
+  // };
   // let params = useParams();
   useEffect(() => {
-    fetchProfileData();
-    fetchAllProfiles();
+    // fetchProfileData();
+    // fetchAllProfiles();
   }, []);
-
+  console.log("profile page:", profileData);
   return (
     <Container>
       <Row>

@@ -31,7 +31,7 @@ function App() {
   };
 
   useEffect(() => {
-    // fetchProfileData();
+    fetchProfileData();
   }, []);
 
   return (
@@ -39,12 +39,20 @@ function App() {
       <BrowserRouter>
         <NavBar />
         <Routes>
-          <Route path={"/profile-page"} element={<ProfilePage />} />
+          <Route
+            path={"/profile-page"}
+            element={
+              <ProfilePage
+                profileData={profileData}
+                setProfileData={setProfileData}
+              />
+            }
+          />
           <Route
             path={"/profile-page/:userId"}
             element={
               <ProfilePage
-                profiledata={profileData}
+                profileData={profileData}
                 setProfileData={setProfileData}
               />
             }
