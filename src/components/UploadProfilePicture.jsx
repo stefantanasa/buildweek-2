@@ -12,7 +12,7 @@ const UploadProfilePicture = () => {
     setLoading(true);
     try {
       const res = await fetch(
-        "https://striveschool-api.herokuapp.com/api/profile/626fc30317c4e00015d7a082/picture",
+        "https://striveschool-api.herokuapp.com/api/profile/627a0965d62b350015ed397a/picture",
         {
           method: "POST",
           body: data,

@@ -19,7 +19,7 @@ const ExperiencesCard = ({ setProfileData, profileData }) => {
         {
           headers: {
             Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjU2YmQxZGE5MDIzOTAwMTVkOTY1YzgiLCJpYXQiOjE2NTE1Nzc5MTAsImV4cCI6MTY1Mjc4NzUxMH0.dsdmzZvDcP2azLGh2MGVZ8-C7UCxWzuy8sAPtKFDYg4",
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjdhMDk2NWQ2MmIzNTAwMTVlZDM5N2EiLCJpYXQiOjE2NTIxNjQ5NjUsImV4cCI6MTY1MzM3NDU2NX0.Vcz2Utp2Ywc5uYa4hGPLHyTOWn3hsrAdiYC4JtURBz8",
           },
         }
       );
@@ -33,8 +33,8 @@ const ExperiencesCard = ({ setProfileData, profileData }) => {
     }
   };
   useEffect(() => {
-    setProfileId("626fc30317c4e00015d7a082");
-    fetchExperiences("626fc30317c4e00015d7a082");
+    setProfileId("627a0965d62b350015ed397a");
+    fetchExperiences("627a0965d62b350015ed397a");
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

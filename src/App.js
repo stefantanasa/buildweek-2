@@ -22,7 +22,7 @@ function App() {
       {
         headers: {
           authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjU2YmQxZGE5MDIzOTAwMTVkOTY1YzgiLCJpYXQiOjE2NTE0OTM1NzcsImV4cCI6MTY1MjcwMzE3N30.9qnwR5Y-5lsD8GLJZNjp5T6Z__FJku-we3Sn6MwRpp0",
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjdhMDk2NWQ2MmIzNTAwMTVlZDM5N2EiLCJpYXQiOjE2NTIxNjQ5NjUsImV4cCI6MTY1MzM3NDU2NX0.Vcz2Utp2Ywc5uYa4hGPLHyTOWn3hsrAdiYC4JtURBz8",
         },
       }
     );
@@ -38,7 +38,7 @@ function App() {
     const response = await fetch(linkToFetch, {
       headers: {
         authorization:
-          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjZmYzMwMzE3YzRlMDAwMTVkN2EwODIiLCJpYXQiOjE2NTE0OTE1ODgsImV4cCI6MTY1MjcwMTE4OH0.yS8YrZCAJfbhN7ye7OAqtaTyteCbwQsztG411czMp8s",
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjdhMDk2NWQ2MmIzNTAwMTVlZDM5N2EiLCJpYXQiOjE2NTIxNjQ5NjUsImV4cCI6MTY1MzM3NDU2NX0.Vcz2Utp2Ywc5uYa4hGPLHyTOWn3hsrAdiYC4JtURBz8",
       },
     });
 

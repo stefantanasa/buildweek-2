@@ -20,7 +20,7 @@ const AddExperience = ({ setExperiences, experiences }) => {
   const postExperience = async () => {
     try {
       const response = await fetch(
-        "https://striveschool-api.herokuapp.com/api/profile/626fc30317c4e00015d7a082/experiences",
+        "https://striveschool-api.herokuapp.com/api/profile/627a0965d62b350015ed397a/experiences",
 
         {
           method: "POST",
@@ -35,9 +35,6 @@ const AddExperience = ({ setExperiences, experiences }) => {
       if (response.ok) {
         let data = await response.json();
         console.log("✅Experience has been added! ", data);
-        const pushData = [experiences, data];
-        console.log("Inside post: ", pushData);
-        setExperiences();
       } else {
         console.log("❌Else error! ");
       }
