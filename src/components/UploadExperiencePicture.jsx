@@ -1,18 +1,18 @@
 import React from "react";
 import { useState } from "react";
 
-const UploadExperiencePicture = ({ expId }) => {
+const UploadExperiencePicture = ({ expId, setImageLink }) => {
   const [image, setImage] = useState(``);
   const [loading, setLoading] = useState(false);
-  const [imageUploaded, setImageUploaded] = useState("");
-  console.log("inside uploader: ", expId);
-  const uploadImage = async (expId) => {
+  const [imageUploaded, setImageUploaded] = useState();
+  const uploadImage = async () => {
     const data = new FormData();
     data.append("experience", image);
     setLoading(true);
     try {
       const res = await fetch(
         `https://striveschool-api.herokuapp.com/api/profile/626fc30317c4e00015d7a082/experiences/${expId}/picture`,
+
         {
           method: "POST",
           body: data,
@@ -25,6 +25,7 @@ const UploadExperiencePicture = ({ expId }) => {
       const file = await res.json();
       setImageUploaded(file.image);
       setLoading(false);
+      setImageLink(file.image);
       console.log("Files details: ", file);
     } catch (error) {
       console.log(`❌error❌`, error);
@@ -36,11 +37,11 @@ const UploadExperiencePicture = ({ expId }) => {
 
   return (
     <div>
-      <div class="form-group">
+      <div className="form-group">
         <label for="exampleFormControlFile1">Upload an image</label>
         <input
           type="file"
-          class="form-control-file"
+          className="form-control-file"
           id="exampleFormControlFile1"
           onChange={selected}
         />
@@ -48,14 +49,14 @@ const UploadExperiencePicture = ({ expId }) => {
       <button
         type="button"
         onClick={() => uploadImage(expId)}
-        class="btn btn-primary"
+        className="btn btn-primary"
       >
         Upload
       </button>
       <div>
         {loading ? (
           <div className="spinner-border text-primary" role="status">
-            <span class="sr-only">Loading...</span>
+            <span className="sr-only">Loading...</span>
           </div>
         ) : (
           <img src={imageUploaded} width={"200px"} />

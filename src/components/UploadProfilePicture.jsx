@@ -36,11 +36,11 @@ const UploadProfilePicture = () => {
 
   return (
     <div>
-      <div class="form-group">
+      <div className="form-group">
         <label for="exampleFormControlFile1">Upload an image</label>
         <input
           type="file"
-          class="form-control-file"
+          className="form-control-file"
           id="exampleFormControlFile1"
           onChange={selected}
         />
@@ -51,7 +51,7 @@ const UploadProfilePicture = () => {
       <div>
         {loading ? (
           <div className="spinner-border text-primary" role="status">
-            <span class="sr-only">Loading...</span>
+            <span className="sr-only">Loading...</span>
           </div>
         ) : (
           <img src={imageUploaded} width={"200px"} />

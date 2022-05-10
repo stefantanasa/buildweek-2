@@ -5,11 +5,13 @@ import Experience from "./Experience";
 import ProfileModal from "./ProfileModal";
 
 const ExperiencesCard = ({ setProfileData, profileData }) => {
-  const [experiences, setExperiences] = useState();
+  const [experiences, setExperiences] = useState([]);
   const [profileId, setProfileId] = useState();
-  const [content, setContent] = useState(<AddExperience />);
+  const [content, setContent] = useState(
+    <AddExperience setExperiences={setExperiences} experiences={experiences} />
+  );
   const [modalShow, setModalShow] = useState(false);
-
+  console.log(experiences);
   const fetchExperiences = async (id) => {
     try {
       const response = await fetch(
@@ -50,7 +52,13 @@ const ExperiencesCard = ({ setProfileData, profileData }) => {
         </div>
       </div>
       {experiences &&
-        experiences.map((exp) => <Experience key={exp._id} experience={exp} />)}
+        experiences.map((exp) => (
+          <Experience
+            key={exp._id}
+            experience={exp}
+            setExperiences={setExperiences}
+          />
+        ))}
       <ProfileModal
         show={modalShow}
         content={content}

@@ -4,7 +4,7 @@ import { useState } from "react";
 const UploadPostPictureForNewPost = (props) => {
   const [image, setImage] = useState(``);
   const [loading, setLoading] = useState(false);
-  const [postID, setPostID] = useState("")
+  const [postID, setPostID] = useState("");
 
   const uploadImage = async (e) => {
     const data = new FormData();
@@ -34,18 +34,17 @@ const UploadPostPictureForNewPost = (props) => {
   };
 
   useEffect(() => {
-    setPostID(props.postID)
-    console.log("Post ID " + props.postID)
-  }, [])
-
+    setPostID(props.postID);
+    console.log("Post ID " + props.postID);
+  }, []);
 
   return (
     <div>
-      <div class="form-group">
+      <div className="form-group">
         <label for="exampleFormControlFile1">Upload a post image</label>
         <input
           type="file"
-          class="form-control-file"
+          className="form-control-file"
           id="exampleFormControlFile1"
           onChange={selected}
         />
@@ -53,10 +52,10 @@ const UploadPostPictureForNewPost = (props) => {
       <button
         type="button"
         onClick={() => {
-        console.log("click")
-        uploadImage()
-    }}
-        class="btn btn-primary"
+          console.log("click");
+          uploadImage();
+        }}
+        className="btn btn-primary"
       >
         Upload your new post picture
       </button>
